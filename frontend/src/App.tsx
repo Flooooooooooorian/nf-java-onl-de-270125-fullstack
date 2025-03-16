@@ -24,7 +24,7 @@ function App() {
     return (
         <>
             <div className="page">
-                <h1>TODOs</h1>
+                <h1>All TODOs</h1>
                 {
                     allPossibleTodos.map(status => {
                         const filteredTodos = todos.filter(todo => todo.status === status)
