@@ -30,6 +30,7 @@ public class SecurityConfig {
                 .sessionManagement(s ->
                         s.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                 )
+                .logout(l -> l.logoutSuccessUrl(appUrl))
                 .oauth2Login(o -> o.defaultSuccessUrl(appUrl))
                 .exceptionHandling(e -> e
                         .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
