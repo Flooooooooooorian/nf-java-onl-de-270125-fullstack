@@ -4,14 +4,18 @@ import {Route, Routes} from "react-router-dom";
 import TodoApp from "./todo-app.tsx";
 import Login from "./login.tsx";
 import ProtectedRoutes from "./ProtectedRoutes.tsx";
+import {AppUser} from "./AppUser.ts";
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+    const [appUser, setAppUser] = useState<AppUser | undefined | null>(undefined)
 
     function getMe() {
         axios.get("/api/auth/me")
-            .then(() => setIsLoggedIn(true))
-            .catch(e => console.error(e))
+            .then((r) => setAppUser(r.data))
+            .catch(e => {
+                setAppUser(null);
+                console.error(e);
+            })
     }
 
     useEffect(getMe, []);
@@ -19,8 +23,8 @@ function App() {
     return (
         <Routes>
             <Route path="/" element={<Login/>}/>
-            <Route element={<ProtectedRoutes isLoggedIn={isLoggedIn} />}>
-                <Route path="/todos" element={<TodoApp/>}/>
+            <Route element={<ProtectedRoutes appUser={appUser} />}>
+                <Route path="/todos" element={<TodoApp appUser={appUser}/>}/>
             </Route>
         </Routes>
     )
