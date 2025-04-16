@@ -1,5 +1,7 @@
 package de.neuefische.backend.security;
 
+import de.neuefische.backend.user.AppUser;
+import de.neuefische.backend.user.AppUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package de.neuefische.backend.security;
+package de.neuefische.backend.user;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

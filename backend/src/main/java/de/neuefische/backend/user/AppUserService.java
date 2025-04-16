@@ -1,4 +1,4 @@
-package de.neuefische.backend.security;
+package de.neuefische.backend.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,4 +8,8 @@ import org.springframework.stereotype.Service;
 public class AppUserService {
 
     private final AppUserRepository appUserRepository;
+
+    public AppUser createAppUser(AppUser appUser) {
+        return appUserRepository.save(appUser);
+    }
 }

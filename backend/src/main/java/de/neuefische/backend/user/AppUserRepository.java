@@ -1,4 +1,4 @@
-package de.neuefische.backend.security;
+package de.neuefische.backend.user;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
